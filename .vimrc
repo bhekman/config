@@ -25,7 +25,14 @@ fun! SetupVAM()
 endfun
 
 call SetupVAM()
-VAMActivate matchit.zip vim-addon-commenting The_NERD_Commenter The_NERD_tree fugitive ctrlp EasyMotion bufexplorer.zip
+VAMActivate matchit.zip 
+VAMActivate vim-addon-commenting 
+VAMActivate The_NERD_Commenter 
+VAMActivate The_NERD_tree 
+VAMActivate fugitive 
+VAMActivate ctrlp 
+VAMActivate EasyMotion
+"VAMActivate YouCompleteMe " need to update vim
 
 set term=xterm
 
@@ -36,6 +43,7 @@ set title
 set scrolloff=3
 set number
 set visualbell
+colorscheme desert
 
 " leader key stuff
 set showcmd
@@ -53,6 +61,13 @@ nnoremap aj <C-W><C-J>
 nnoremap ak <C-W><C-K>
 nnoremap al <C-W><C-L>
 nnoremap ah <C-W><C-H>
+" Quicker buffer switching and closing
+nnoremap <leader>1 :b1<CR>
+nnoremap <leader>2 :b2<CR>
+nnoremap <leader>3 :b3<CR>
+nnoremap <leader>4 :b4<CR>
+nnoremap <leader>5 :b5<CR>
+nnoremap <leader>w :bw<CR>
 
 " tabbing (2 space)
 set smartindent
@@ -68,8 +83,11 @@ set expandtab
 " can toggle paste mode with F2
 set pastetoggle=,.
 
-" Highlighting
-" TODO: fix search highlighting.
+" Search Highlighting
+" TODO(bhekman): Still broken..
+nmap <silent> ,/ :nohlsearch<CR>  " clears search highlighting
+set ignorecase
+set incsearch
 
 " ; === ;
 nnoremap ; : 
@@ -89,6 +107,7 @@ set tags=tags;/
 set scrolloff=15
 " don't require leader key to be pressed twice
 map <Leader> <Plug>(easymotion-prefix)
+" remember that <leader>w allow word jumping
 " h,j,k,l commands
 map <Leader>l <Plug>(easymotion-lineforward)
 map <Leader>j <Plug>(easymotion-j)
