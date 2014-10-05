@@ -43,7 +43,8 @@ set title
 set scrolloff=3
 set number
 set visualbell
-colorscheme desert
+colorscheme slate
+set background=dark
 
 " leader key stuff
 set showcmd
@@ -55,6 +56,8 @@ imap jk <ESC>
 " Split setup and navigation
 nmap - :new<CR>
 nmap \| :vnew<CR>
+nmap <leader>- :res -5<CR>
+nmap <leader>+ :res +5<CR>
 set splitbelow
 set splitright
 nnoremap aj <C-W><C-J>
