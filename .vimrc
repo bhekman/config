@@ -43,8 +43,11 @@ set title
 set scrolloff=3
 set number
 set visualbell
-colorscheme slate
+
+" Coloration
+colorscheme desert
 set background=dark
+let &t_Co=256  " tell vim that we support 256 color
 
 " leader key stuff
 set showcmd
