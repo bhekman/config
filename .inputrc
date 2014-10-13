@@ -1,4 +1,9 @@
+# History searching with up/down
 "\e[A": history-search-backward
 "\e[B": history-search-forward
 set show-all-if-ambiguous on
 set completion-ignore-case on
+
+# Color for cd (requires bash 4.3+)
+# TODO: switch to zsh..
+set colored-stats on
