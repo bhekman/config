@@ -90,7 +90,7 @@ set expandtab
 set pastetoggle=,.
 
 " Search Highlighting
-" TODO(bhekman): Still broken..
+set hlsearch
 nmap <silent> ,/ :nohlsearch<CR>  " clears search highlighting
 set ignorecase
 set incsearch
