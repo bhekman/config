@@ -25,13 +25,14 @@ fun! SetupVAM()
 endfun
 
 call SetupVAM()
-VAMActivate matchit.zip 
-VAMActivate vim-addon-commenting 
-VAMActivate The_NERD_Commenter 
-VAMActivate The_NERD_tree 
-VAMActivate fugitive 
-VAMActivate ctrlp 
+VAMActivate matchit.zip
+VAMActivate vim-addon-commenting
+VAMActivate The_NERD_Commenter
+VAMActivate The_NERD_tree
+VAMActivate fugitive
+VAMActivate ctrlp
 VAMActivate EasyMotion
+VAMActivate ShowTrailingWhitespace
 "VAMActivate YouCompleteMe " need to update vim
 
 set term=xterm
@@ -51,7 +52,7 @@ let &t_Co=256  " tell vim that we support 256 color
 
 " leader key stuff
 set showcmd
-let mapleader = "," 
+let mapleader = ","
 
 " maps of awesome
 imap jk <ESC>
@@ -78,7 +79,7 @@ nnoremap <leader>w :bw<CR>
 " tabbing (2 space)
 set smartindent
 set tabstop=2
-set shiftwidth=2 
+set shiftwidth=2
 set expandtab
 
 " deprecated autofolding
@@ -96,7 +97,7 @@ set ignorecase
 set incsearch
 
 " ; === ;
-nnoremap ; : 
+nnoremap ; :
 
 "nmap <silent> ,/ :nohlsearch<CR>   " clears search highlighting
 set ignorecase
