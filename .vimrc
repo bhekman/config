@@ -33,7 +33,10 @@ VAMActivate fugitive
 VAMActivate ctrlp
 VAMActivate EasyMotion
 VAMActivate ShowTrailingWhitespace
-"VAMActivate YouCompleteMe " need to update vim
+call vam#ActivateAddons([ 'vim-airline' ])
+if v:version > 703
+  VAMActivate YouCompleteMe
+endif
 
 set term=xterm
 
@@ -49,6 +52,11 @@ set visualbell
 colorscheme desert
 set background=dark
 let &t_Co=256  " tell vim that we support 256 color
+
+" Airline
+let g:airline_theme='murmur'
+set ttimeoutlen=50
+set laststatus=2
 
 " leader key stuff
 set showcmd
