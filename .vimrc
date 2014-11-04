@@ -40,6 +40,7 @@ endif
 
 set term=xterm
 
+" Misc
 set hidden
 set wildmenu
 set wildmode=list:longest
@@ -48,9 +49,20 @@ set scrolloff=3
 set number
 set visualbell
 
+" Faster navigation
+vnoremap <C-j> 5j
+vnoremap <C-k> 5k
+vnoremap <C-h> 5h
+vnoremap <C-l> 5l
+nnoremap <C-j> 5j
+nnoremap <C-k> 5k
+nnoremap <C-h> 5h
+nnoremap <C-l> 5l
+
 " Coloration
 colorscheme desert
 set background=dark
+hi Search ctermfg=black ctermbg=blue
 let &t_Co=256  " tell vim that we support 256 color
 
 " Airline
@@ -95,8 +107,8 @@ set expandtab
 "set foldlevel=1
 "set foldclose=all
 
-" can toggle paste mode with F2
-set pastetoggle=,.
+" Toggle paste mode
+set pastetoggle=<leader>.
 
 " Search Highlighting
 set hlsearch
@@ -117,25 +129,14 @@ cmap w!! w !sudo tee % >/dev/null
 " use tags file
 set tags=tags;/
 
-" EasyMotion config
+" EasyMotion config (TODO, fix)
 " keep cursor closer to center, for better visibility
 set scrolloff=15
 " don't require leader key to be pressed twice
-map <Leader> <Plug>(easymotion-prefix)
+"map <Leader> <Plug>(easymotion-prefix)
 " remember that <leader>w allow word jumping
 " h,j,k,l commands
-map <Leader>l <Plug>(easymotion-lineforward)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map <Leader>h <Plug>(easymotion-linebackward)
-
-" vim-airline setup (deprecated: colors/textures would not render as of 08/31/2014)
-"let g:airline_powerline_fonts = 1
-"set laststatus=2
-"let g:airline_theme = 'lucius'
-" force xterm with 256 colors
-"set t_Co=256
-"set t_AB=^[[48;5;%dm
-"set t_AF=^[[38;5;%dm
-
-
+"map <Leader>l <Plug>(easymotion-lineforward)
+"map <Leader>j <Plug>(easymotion-j)
+"map <Leader>k <Plug>(easymotion-k)
+"map <Leader>h <Plug>(easymotion-linebackward)
