@@ -49,6 +49,10 @@ set scrolloff=3
 set number
 set visualbell
 
+" Fix weird delete key problems
+set backspace=2
+set backspace=indent,eol,start
+
 " Faster navigation
 vnoremap <C-j> 5j
 vnoremap <C-k> 5k
