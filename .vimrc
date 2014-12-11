@@ -120,6 +120,13 @@ nmap <silent> ,/ :nohlsearch<CR>  " clears search highlighting
 set ignorecase
 set incsearch
 
+" Highlight column 80, 100, 120:
+if exists('+colorcolumn')
+  set colorcolumn=120
+else
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
+
 " ; === ;
 nnoremap ; :
 
