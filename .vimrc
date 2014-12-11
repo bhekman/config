@@ -84,8 +84,8 @@ imap jk <ESC>
 " Split setup and navigation
 nmap - :new<CR>
 nmap \| :vnew<CR>
-nmap <leader>- :res -5<CR>
-nmap <leader>+ :res +5<CR>
+nmap <leader>- :res -5<CR> :vertical resize -5<CR>
+nmap <leader>+ :res +5<CR> :vertical resize +5<CR>
 set splitbelow
 set splitright
 nnoremap aj <C-W><C-J>
