@@ -23,7 +23,10 @@ export LSCOLORS=bxfxdxgxcxegedabagacad
 # For Mac
 if [[ "$OSTYPE" == "darwin"* ]]; then
   echo "Configuring .profile for MacOSX"
-  PATH=$PATH:/usr/local/bin
+  # Because local bin..
+  export PATH=$PATH:/usr/local/bin
+  # For pip installations
+  export PATH=$PATH:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/
   # Coloration
   export PS1="\[\033[0;33m\]\u\[\033[0m\]:\[\033[0;33m\]\W\[\033[0m\]$ "
   # Use Newer vim
