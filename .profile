@@ -22,18 +22,23 @@ export LSCOLORS=bxfxdxgxcxegedabagacad
 # OS SPECIFIC OPTIONS
 # For Mac
 if [[ "$OSTYPE" == "darwin"* ]]; then
+  echo "Configuring .profile for MacOSX"
   PATH=$PATH:/usr/local/bin
   # Coloration
   export PS1="\[\033[0;33m\]\u\[\033[0m\]:\[\033[0;33m\]\W\[\033[0m\]$ "
-  # Newer vim
-  #alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+  # Use Newer vim
+  alias vi="/Applications/MacVim.app/Contents/MacOS/Vim"
+  alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
   # Syntax highlighting
   alias dog="pygmentize -g"
   # MacPorts Installer addition on 2014-10-19_at_21:28:44: adding an appropriate PATH variable for use with MacPorts.
   export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+  # Store location of cookiecutter repo
+  export MYCOOKIE="/Users/bradleyhekman/Dropbox/Techy/Projects/cookiecutter-pypackage"
 
 # For Linux
 elif [[ "$OSTYPE" == "linux-gnu" ]]; then
+  echo "Configuring .profile for Linux"
   module load gcc
   module load gdb/7.5.1
   export PATH="~/usr/bin:$PATH"

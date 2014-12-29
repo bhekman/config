@@ -71,7 +71,7 @@ let &t_Co=256  " tell vim that we support 256 color
 
 " Airline
 let g:airline_theme='murmur'
-set ttimeoutlen=50
+set ttimeoutlen=300
 set laststatus=2
 
 " leader key stuff
