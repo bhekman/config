@@ -2,7 +2,6 @@
 syntax on
 
 " for plugins
-filetype plugin on
 filetype plugin indent on
 au FileType xhtml,xml so ~/.vim/ftplugin/html_autoclosetag.vim
 
@@ -100,16 +99,13 @@ nnoremap <leader>4 :b4<CR>
 nnoremap <leader>5 :b5<CR>
 nnoremap <leader>w :bw<CR>
 
-" tabbing (2 space)
+" My preferred tabbing, autoindent features
+set autoindent
+set nocindent
 set smartindent
 set tabstop=2
 set shiftwidth=2
 set expandtab
-
-" deprecated autofolding
-"set foldmethod=indent
-"set foldlevel=1
-"set foldclose=all
 
 " Toggle paste mode
 set pastetoggle=<leader>.
