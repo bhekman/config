@@ -27,8 +27,12 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   export PATH=$PATH:/usr/local/bin
   # For pip installations
   export PATH=$PATH:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/
-  # Coloration
-  export PS1="\[\033[0;33m\]\u\[\033[0m\]:\[\033[0;33m\]\W\[\033[0m\]$ "
+
+  # Command Prompt
+  # Coloration (worked for bash, not zsh)
+  #export PS1="\[\033[0;33m\]\u\[\033[0m\]:\[\033[0;33m\]\W\[\033[0m\]$ "
+  #export PS1="[%n@%m:%/]%#"
+
   # Use Newer vim
   alias vi="/Applications/MacVim.app/Contents/MacOS/Vim"
   alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
