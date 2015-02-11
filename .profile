@@ -12,12 +12,7 @@ else
 fi
 
 # Aliases
-alias la='ls -a'
-
-# Force organized, colorized ls
-alias ls='ls -Gl'
-export CLICOLOR=true
-export LSCOLORS=bxfxdxgxcxegedabagacad
+source $HOME/.aliases
 
 # OS SPECIFIC OPTIONS
 # For Mac

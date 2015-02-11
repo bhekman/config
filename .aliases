@@ -1,0 +1,46 @@
+### Shortcuts
+
+# Moving up file system
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
+# Location shortcuts
+alias db="cd ~/Documents/Dropbox"
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+
+# ls tweaks
+alias la='ls -a'
+alias ls='ls -Gl'
+export CLICOLOR=true
+export LSCOLORS=bxfxdxgxcxegedabagacad
+
+# Command shortcuts
+alias g="git"
+alias j="jobs"
+alias f="fg"
+
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
+
+### Convenience commands
+# NOTE: Written for OS X. Most won't work on other OSes.
+
+# Find IP addr
+alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
+
+# Desktop visibility
+alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
+# Usage: `mergepdf -o output.pdf input{1,2,3}.pdf`
+alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
+
+# Ring the terminal bell, and put a badge on Terminal.app’s Dock icon
+# (useful when executing time-consuming commands)
+alias badge="tput bel"
+
+# Trim new lines and copy to clipboard
+alias c="tr -d '\n' | pbcopy"
