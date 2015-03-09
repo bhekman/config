@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <!-- Strings related to create_feedback -->
-    <string name="prompt_feedback">Enter feedback here..</string>
-
-</resources>
