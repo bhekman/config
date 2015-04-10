@@ -32,6 +32,7 @@ VAMActivate fugitive
 VAMActivate ctrlp
 VAMActivate EasyMotion
 VAMActivate ShowTrailingWhitespace
+VAMActivate github:digitaltoad/vim-jade
 call vam#ActivateAddons([ 'vim-airline' ])
 if v:version > 703
   VAMActivate YouCompleteMe
