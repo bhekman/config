@@ -5,6 +5,7 @@ syntax on
 filetype plugin indent on
 au FileType xhtml,xml so ~/.vim/ftplugin/html_autoclosetag.vim
 
+" nocompatible
 set nocompatible
 
 " Ensure that VAM is installed.
@@ -23,6 +24,7 @@ fun! SetupVAM()
   call vam#ActivateAddons([ ], {'auto_install' : 1})
 endfun
 
+" My lovely plugins
 call SetupVAM()
 VAMActivate matchit.zip
 VAMActivate vim-addon-commenting
@@ -30,9 +32,12 @@ VAMActivate The_NERD_Commenter
 VAMActivate The_NERD_tree
 VAMActivate fugitive
 VAMActivate ctrlp
-VAMActivate EasyMotion
+VAMActivate github:luochen1990/rainbow
+VAMActivate github:easymotion/vim-easymotion
 VAMActivate ShowTrailingWhitespace
 VAMActivate github:digitaltoad/vim-jade
+VAMActivate github:octol/vim-cpp-enhanced-highlight  " untested
+VAMActivate github:airblade/vim-gitgutter
 call vam#ActivateAddons([ 'vim-airline' ])
 if v:version > 703
   VAMActivate YouCompleteMe
@@ -53,15 +58,19 @@ set visualbell
 set backspace=2
 set backspace=indent,eol,start
 
-" Faster navigation
-vnoremap <C-j> 5j
-vnoremap <C-k> 5k
-vnoremap <C-h> 5h
-vnoremap <C-l> 5l
-nnoremap <C-j> 5j
-nnoremap <C-k> 5k
-nnoremap <C-h> 5h
-nnoremap <C-l> 5l
+" Search Highlighting and clearing
+set hlsearch
+" Clears search highlighting
+nnoremap <silent> ,/ :nohlsearch<CR>  
+" Intuitive and pretty searching (ignorecase needed for smartcase)
+set smartcase
+set ignorecase
+" Move search as you type
+set incsearch
+" Turn on highlighting for searching
+nnoremap / :set hls<CR>/
+" Searches for current word (not working, use # or *)
+"nnoremap <leader>s :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
 " Coloration
 colorscheme desert
@@ -74,18 +83,24 @@ let g:airline_theme='murmur'
 set ttimeoutlen=300
 set laststatus=2
 
+" Nerdcommenter shortcut. <C-_> is actually ctrl+/
+nnoremap <C-_> <Plug>NERDCommenterToggle
+
 " leader key stuff
 set showcmd
 let mapleader = ","
 
-" maps of awesome
-imap jk <ESC>
+" custom maps of awesome
+inoremap jk <ESC>
+inoremap jK <ESC>
+inoremap Jk <ESC>
+inoremap JK <ESC>
 
 " Split setup and navigation
-nmap - :new<CR>
-nmap \| :vnew<CR>
-nmap <leader>- :res -5<CR> :vertical resize -5<CR>
-nmap <leader>+ :res +5<CR> :vertical resize +5<CR>
+nnoremap - :new<CR>
+nnoremap \| :vnew<CR>
+nnoremap <leader>- :res -5<CR> :vertical resize -5<CR>
+nnoremap <leader>+ :res +5<CR> :vertical resize +5<CR>
 set splitbelow
 set splitright
 nnoremap aj <C-W><C-J>
@@ -111,12 +126,6 @@ set expandtab
 " Toggle paste mode
 set pastetoggle=<leader>.
 
-" Search Highlighting
-set hlsearch
-nmap <silent> ,/ :nohlsearch<CR>  " clears search highlighting
-set ignorecase
-set incsearch
-
 " Highlight column 80, 100, 120:
 if exists('+colorcolumn')
   set colorcolumn=120
@@ -127,24 +136,36 @@ endif
 " ; === ;
 nnoremap ; :
 
-"nmap <silent> ,/ :nohlsearch<CR>   " clears search highlighting
-set ignorecase
-set incsearch
-
 " allows !! to grant sudo commands if forgotten on opening
-cmap w!! w !sudo tee % >/dev/null
+cnoremap w!! w !sudo tee % >/dev/null
 
 " use tags file
 set tags=tags;/
 
-" EasyMotion config (TODO, fix)
-" keep cursor closer to center, for better visibility
-set scrolloff=15
-" don't require leader key to be pressed twice
-"map <Leader> <Plug>(easymotion-prefix)
-" remember that <leader>w allow word jumping
-" h,j,k,l commands
-"map <Leader>l <Plug>(easymotion-lineforward)
-"map <Leader>j <Plug>(easymotion-j)
-"map <Leader>k <Plug>(easymotion-k)
-"map <Leader>h <Plug>(easymotion-linebackward)
+" EasyMotion config (Fixed, but I prefer just using shift to move x5)
+"map L <Plug>(easymotion-lineforward)
+"map J <Plug>(easymotion-j)
+"map K <Plug>(easymotion-k)
+"map H <Plug>(easymotion-linebackward)
+"let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
+" Faster navigation
+vnoremap <S-j> 5j
+vnoremap <S-k> 5k
+vnoremap <S-h> 5h
+vnoremap <S-l> 5l
+vnoremap <S-w> 5w
+nnoremap <S-j> 5j
+nnoremap <S-k> 5k
+nnoremap <S-h> 5h
+nnoremap <S-l> 5l
+nnoremap <S-w> 5w
+" keep cursor closer to center, for better visibility while ctrl+moving.
+set scrolloff=12
+" Jump between changed chunks of code
+nnoremap an :GitGutterNextHunk<CR>
+vnoremap an :GitGutterNextHunk<CR>
+nnoremap ab :GitGutterPrevHunk<CR>
+vnoremap ab :GitGutterPrevHunk<CR>
+
+" Remap :join, since we use S-j for moving downf fast
+nnoremap <C-j> :join<CR>

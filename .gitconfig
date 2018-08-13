@@ -2,6 +2,6 @@
 	name = bhekman
 	email = bradley.hekman@gmail.com
 [push]
-	default = current
+	default = simple
 [core]
 	excludesfile = /Users/bradleyhekman/.gitignore_global
